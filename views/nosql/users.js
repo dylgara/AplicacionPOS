@@ -1,25 +1,28 @@
 const mongoose = require('mongoose')
 
-const userScheme = new mongoose.Schema(
+const clientScheme = new mongoose.Schema(
     {
-        name:{
+        nombre:{
             type:String
 
         },
-        age:{
+        tel:{
             type:Number
             
         },
-        email:{
-            type:String,
-            unique:true
+        ubicacion:{
+            
+            center:[Number, Number],
+            zoom:{
+                type:Number
+            }
         },
-        password:{
-            type:String
+            
+        totalComprado:{
+            type:Number
         },
-        role:{
-            type: ["user","admin"],
-            default: "user",
+        historicoCompras:{
+            type:Number
         }
     },
     {
@@ -28,4 +31,4 @@ const userScheme = new mongoose.Schema(
     }
 );
 
-module.exports = mongoose.model ("users", UserScheme)
+module.exports = mongoose.model ("cliente", UserScheme) 
